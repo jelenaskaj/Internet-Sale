@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?> 
+<?import main.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Kupci_fxmlController">
+    <children>
+        <VBox>
+            <children>
+                <HBox alignment="TOP_RIGHT">
+                    <children>
+                        <Button mnemonicParsing="false" text="Close" onAction="#closeForm"/>
+                    </children>
+                </HBox>
+                <Label text="Dodaj novog kupca" />
+                <Label text="Ime i prezime kupca: " />
+                <TextField fx:id="imePrezime"  promptText="Ime i prezime" />
+                <TextField fx:id="adresa"  promptText="Adresa" />
+                <HBox fillHeight="true" >
+                    <children>
+                        <Label fx:id="brzina" text="Brzina: " /> 
+                        <ChoiceBox fx:id="btnBrzina" value="2" />
+                        <Label text=" Mbit"/>
+                    </children>
+                </HBox>
+                <HBox fillHeight="true" >
+                    <children>
+                        <Label fx:id="protok" text="Protok: " />
+                        <ChoiceBox fx:id="btnProtok" /> 
+                        <Label text=" GB" />
+                    </children>
+                </HBox>
+                <HBox fillHeight="true" >
+                    <children>
+                        <Label fx:id="trajanjeUgovora" text="Trajanje ugovora: " />
+                        <ChoiceBox fx:id="btnTrajanjeUgovora"/> 
+                        <Label text=" god." />
+                    </children>
+                </HBox>
+                <HBox alignment="TOP_RIGHT">        
+                    <children>
+                        <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#saveKupci" text="Save"/> 
+                        <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#deleteKupci" text="Delete" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox> 
+        <Pane>
+            <TableView fx:id="tabela">
+                <columns>
+                    <TableColumn text="ImePrezime">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="imePrezime" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Adresa">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="adresa" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Id">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                    <TableColumn text="Brzina">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="brzina" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                    <TableColumn text="Protok">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="protok" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="TrajanjeUgovora">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="trajanjeUgovora" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <Kupci imePrezime="Jovan Jovanovic" adresa="Vidikovacki venac 83" id="1" brzina="100" protok="Flat" trajanjeUgovora="1"/>
+                        <Kupci imePrezime="Ivana Ivanovic" adresa="Njegoseva 90" id="2" brzina="10" protok="5" trajanjeUgovora="2"/>
+                        <Kupci imePrezime="Petar Petrovic" adresa="Svetozara Markovica 5" id="3" brzina="50" protok="100" trajanjeUgovora="2"/>
+                        <Kupci imePrezime="Mira Markovic" adresa="Zarkovacka 4" id="4" brzina="2" protok="2" trajanjeUgovora="1"/>
+                    </FXCollections>
+                </items>
+            </TableView>
+        </Pane>
+    </children>
+</HBox>            
+        
+       
